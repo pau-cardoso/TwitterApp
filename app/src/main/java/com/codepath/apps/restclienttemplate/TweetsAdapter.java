@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -56,20 +58,34 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivProfileImage;
+        ImageView ivMedia;
+        TextView tvCreatedAt;
         TextView tvScreenName;
+        TextView tvName;
         TextView tvBody;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
+            ivMedia = itemView.findViewById(R.id.ivMedia);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            tvCreatedAt = itemView.findViewById(R.id.tvCreatedAt);
+            tvName = itemView.findViewById(R.id.tvName);
             tvBody = itemView.findViewById(R.id.tvBody);
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
+            tvName.setText(tweet.user.name);
+            tvCreatedAt.setText(tweet.createdAt);
             Glide.with(context).load(tweet.user.publicImageUrl).into(ivProfileImage);
+            Log.i("TweetsAdapter", "mediaURL: " + tweet.mediaUrl);
+            if (tweet.mediaUrl != null) {
+                Glide.with(context).load(tweet.mediaUrl).into(ivMedia);
+            } else  {
+                ivMedia.setVisibility(View.GONE);
+            }
         }
     }
 
