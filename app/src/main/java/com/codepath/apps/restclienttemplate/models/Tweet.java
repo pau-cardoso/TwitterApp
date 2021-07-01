@@ -18,6 +18,7 @@ import java.util.Locale;
 public class Tweet {
     public String body;
     public String createdAt;
+    public String date;
     public String mediaUrl;
     public User user;
 
@@ -28,10 +29,10 @@ public class Tweet {
         Tweet tweet = new Tweet();
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = tweet.getRelativeTimeAgo(jsonObject.getString("created_at"));
+        tweet.date = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         if (jsonObject.getJSONObject("entities").has("media")) {
-            Log.i("Tweet", tweet.body + ": " + jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url"));
-            tweet.mediaUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url");
+            tweet.mediaUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
         }
         return tweet;
     }
