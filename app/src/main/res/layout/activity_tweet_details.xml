@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="2dp"
+    android:background="#15212b"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp"
     tools:context=".TweetDetailsActivity">
 
     <ImageView
@@ -24,9 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfile"
-        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:textSize="23sp"
         android:textStyle="bold"
         tools:text="~Paulina~" />
 
@@ -36,9 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvName"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfile"
-        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
         tools:text="@pau_cardoso_" />
 
     <TextView
@@ -49,6 +55,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="6dp"
         android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         tools:text="This is my tweet woohoo" />
 
@@ -61,6 +68,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="9dp"
         android:text="TextView"
+        android:textColor="@android:color/white"
         android:textSize="11sp" />
 
     <ImageView

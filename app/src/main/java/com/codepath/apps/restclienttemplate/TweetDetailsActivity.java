@@ -37,7 +37,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
 
         tweet = Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
 
-        Glide.with(this).load(tweet.user.publicImageUrl).into(ivProfile);
+        Glide.with(this).load(tweet.user.publicImageUrl).circleCrop().into(ivProfile);
         Glide.with(this).load(tweet.mediaUrl).into(ivMedia);
         tvName.setText(tweet.user.name);
         tvScreenName.setText(tweet.user.screenName);

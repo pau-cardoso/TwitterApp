@@ -3,12 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#15212b"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingVertical="12dp"
+    android:layout_marginBottom="1dp">
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -20,9 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         tools:text="~Paulina~" />
@@ -32,10 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvName"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
         tools:text="This is my tweet" />
 
     <TextView
@@ -46,7 +53,9 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/tvName"
-        android:text="TextView" />
+        android:textColor="#8899a6"
+        android:textSize="14sp"
+        tools:text="@pau_cardoso" />
 
     <TextView
         android:id="@+id/tvCreatedAt"
@@ -55,19 +64,20 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="false"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="1dp"
         android:layout_toEndOf="@+id/tvScreenName"
-        android:text="TextView"
-        android:textSize="10sp" />
+        android:textColor="#8899a6"
+        android:textSize="14sp"
+        tools:text="3 seconds ago" />
 
     <ImageView
         android:id="@+id/ivMedia"
-        android:layout_width="230dp"
+        android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_below="@+id/tvBody"
         android:layout_alignParentBottom="false"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="-1dp"
         android:layout_toEndOf="@+id/ivProfileImage"
