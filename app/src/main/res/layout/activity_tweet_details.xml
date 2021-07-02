@@ -57,6 +57,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"
         android:textSize="25sp"
+        android:linksClickable="true"
         tools:text="This is my tweet woohoo" />
 
     <TextView
@@ -81,5 +82,33 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/ibtnLike"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="283dp"
+        android:background="@drawable/ibtn_like"
+        android:textColor="@color/twitter_gray"
+        android:tint="@color/inline_action_like" />
+
+    <ImageButton
+        android:id="@+id/ibtnRetweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="283dp"
+        android:layout_toEndOf="@+id/ibtnLike"
+        android:background="#00FFFFFF"
+        android:tint="@drawable/ibtn_retweet"
+        app:srcCompat="@drawable/ic_vector_retweet_stroke" />
 
 </RelativeLayout>

@@ -21,6 +21,7 @@ public class Tweet {
     public String date;
     public String mediaUrl;
     public User user;
+    public String idString;
 
     // empty constructor needed by the Parceler library
     public Tweet(){}
@@ -34,6 +35,7 @@ public class Tweet {
         if (jsonObject.getJSONObject("entities").has("media")) {
             tweet.mediaUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
         }
+        tweet.idString = jsonObject.getString("id_str");
         return tweet;
     }
 

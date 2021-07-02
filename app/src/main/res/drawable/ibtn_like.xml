@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/ic_vector_heart">
+    </item>
+    <item
+        android:drawable="@drawable/ic_vector_heart_stroke"
+        android:state_hovered="true"
+        android:state_pressed="false"
+        android:state_enabled="true">
+        <color android:color="@color/inline_action_like_pressed" />
+        <color android:fillColor="@color/twitter_blue" android:color="@color/inline_action_like_pressed" />
+    </item>
+    <item android:drawable="@drawable/ic_vector_heart_stroke" />
+</selector>
