@@ -94,7 +94,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
-            //Toast.makeText(.this, "Error. Cannot find movie.", Toast.LENGTH_SHORT).show();
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
                 Tweet tweet = tweets.get(position);

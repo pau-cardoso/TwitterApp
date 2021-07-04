@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -38,12 +40,19 @@ public class TimelineActivity extends AppCompatActivity {
     RecyclerView rvTweets;
     List<Tweet> tweets;
     TweetsAdapter adapter;
+    Toolbar toolbarTimeline;
+    ImageView ivLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
+        toolbarTimeline = (Toolbar) findViewById(R.id.toolbarTimeline); // Find the toolbar view inside the activity layout
+        setSupportActionBar(toolbarTimeline); // Sets the Toolbar to act as the ActionBar for this Activity window.
+        getSupportActionBar().setDisplayShowTitleEnabled(false); // Removes the title text from Action Bar
+
+        // Setting the refresh on swiping
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -61,6 +70,7 @@ public class TimelineActivity extends AppCompatActivity {
 
         // Find the recycler view
         rvTweets = findViewById(R.id.rvTweets);
+        ivLogo = findViewById(R.id.ivLogo);
         // Init the list of tweets and adapter
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
@@ -68,6 +78,13 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvTweets.setAdapter(adapter);
         populateHomeTimeline();
+
+        ivLogo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rvTweets.smoothScrollToPosition(0);
+            }
+        });
     }
 
     private void populateHomeTimeline() {
