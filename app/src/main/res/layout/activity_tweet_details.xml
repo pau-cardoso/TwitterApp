@@ -60,6 +60,17 @@
         android:linksClickable="true"
         tools:text="This is my tweet woohoo" />
 
+    <ImageView
+        android:id="@+id/ivMedia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBody"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
@@ -72,22 +83,81 @@
         android:textColor="@android:color/white"
         android:textSize="11sp" />
 
-    <ImageView
-        android:id="@+id/ivMedia"
+
+    <View
+        android:id="@+id/divider1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBody"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tvDate"
         android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="5dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_marginTop="15dp"
+        android:background="@color/twitter_gray" />
+
+    <TextView
+        android:id="@+id/tvNoRetweets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="90" />
+
+    <TextView
+        android:id="@+id/tvRetweets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider1"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvNoRetweets"
+        android:text="Retweets"
+        android:textColor="@color/light_gray"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvNoLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider1"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvRetweets"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="1056" />
+
+    <TextView
+        android:id="@+id/tvFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider1"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvNoLikes"
+        android:text="Likes"
+        android:textColor="@color/light_gray"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tvNoRetweets"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:background="@color/twitter_gray" />
 
     <Button
         android:id="@+id/ibtnLike"
         android:layout_width="25dp"
         android:layout_height="24dp"
-        android:layout_below="@+id/tvDate"
+        android:layout_below="@+id/divider2"
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="false"
         android:layout_marginStart="30dp"
@@ -101,7 +171,7 @@
         android:id="@+id/ibtnRetweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDate"
+        android:layout_below="@+id/divider2"
         android:layout_alignParentBottom="false"
         android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
@@ -110,5 +180,6 @@
         android:background="#00FFFFFF"
         android:tint="@drawable/ibtn_retweet"
         app:srcCompat="@drawable/ic_vector_retweet_stroke" />
+
 
 </RelativeLayout>

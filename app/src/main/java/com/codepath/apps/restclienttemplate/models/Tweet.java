@@ -16,12 +16,17 @@ import java.util.Locale;
 
 @Parcel
 public class Tweet {
+
+    public static String TAG = "Tweet";
+
     public String body;
     public String createdAt;
     public String date;
     public String mediaUrl;
     public User user;
     public String idString;
+    public Integer retweetCount;
+    public Integer favoriteCount;
 
     // empty constructor needed by the Parceler library
     public Tweet(){}
@@ -36,6 +41,8 @@ public class Tweet {
             tweet.mediaUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
         }
         tweet.idString = jsonObject.getString("id_str");
+        tweet.retweetCount = jsonObject.getInt("retweet_count");
+        tweet.favoriteCount = jsonObject.getInt("favorite_count");
         return tweet;
     }
 

@@ -37,6 +37,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
     TextView tvDate;
     Button ibtnLike;
     ImageButton ibtnRetweet;
+    TextView tvNoRetweets;
+    TextView tvNoLikes;
     TwitterClient client;
 
     @Override
@@ -53,6 +55,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvDate = findViewById(R.id.tvDate);
         ibtnLike = findViewById(R.id.ibtnLike);
         ibtnRetweet = findViewById(R.id.ibtnRetweet);
+        tvNoLikes = (TextView) findViewById(R.id.tvNoLikes);
+        tvNoRetweets = (TextView) findViewById(R.id.tvNoRetweets);
 
         tweet = Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
 
@@ -62,6 +66,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvScreenName.setText(tweet.user.screenName);
         tvBody.setText(tweet.body);
         tvDate.setText(tweet.date);
+        tvNoLikes.setText(String.valueOf(tweet.favoriteCount));
+        tvNoRetweets.setText(String.valueOf(tweet.retweetCount));
 
         ibtnLike.setOnClickListener(new View.OnClickListener() {
             @Override
