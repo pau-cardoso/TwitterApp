@@ -13,7 +13,8 @@
         android:icon="@mipmap/ic_launcher_twitter"
         android:label="Twitter"
         android:theme="@style/AppTheme">
-        <activity android:name=".TweetDetailsActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".TweetDetailsActivity" />
         <activity android:name=".ComposeActivity" />
         <activity android:name=".TimelineActivity" />
         <activity

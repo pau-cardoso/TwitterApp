@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,19 +17,18 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.jetbrains.annotations.NotNull;
 import org.parceler.Parcels;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
     Context context;
-    List<Tweet> tweets;
+    List<Tweet> userTweets;
 
     // Pass in the context and list of tweets
-    public TweetsAdapter(Context context, List<Tweet> tweets) {
+    public ProfileAdapter(Context context, List<Tweet> userTweets) {
         this.context = context;
-        this.tweets = tweets;
+        this.userTweets = userTweets;
     }
 
     // For each row, inflate the layout for the tweet
@@ -45,19 +43,19 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     // Bind values based on position of the element
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
-        // Get the data at the position
-        Tweet tweet = tweets.get(position);
-        // Bind the tweet with view holder
+        // Get the data at position
+        Tweet tweet = userTweets.get(position);
+        // Bind tweet with View Holder
         holder.bind(tweet);
     }
 
-    // Pass in the context and list of tweets
     @Override
     public int getItemCount() {
-        return tweets.size();
+        return userTweets.size() ;
     }
 
-    // Define the viewholder
+
+    // Define a ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView ivProfileImage;
@@ -84,6 +82,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvName.setText(tweet.user.name);
             tvCreatedAt.setText(tweet.createdAt);
             Glide.with(context).load(tweet.user.publicImageUrl).circleCrop().into(ivProfileImage);
+            Log.i("TweetsAdapter", "mediaURL: " + tweet.mediaUrl);
             if (tweet.mediaUrl != null) {
                 Glide.with(context).load(tweet.mediaUrl).into(ivMedia);
             } else  {
@@ -95,24 +94,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         public void onClick(View view) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                Tweet tweet = tweets.get(position);
+                Tweet tweet = userTweets.get(position);
                 Intent i = new Intent(context, TweetDetailsActivity.class);
                 i.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet)); // serialize the tweet using parceler, use its short name as a key
                 context.startActivity(i); // show the activity
             }
         }
     }
-
-    // Clean all elements of the recycler
-    public void clear() {
-        tweets.clear();
-        notifyDataSetChanged();
-    }
-
-    // Add a list of items -- change to type used
-    public void addAll(List<Tweet> list) {
-        tweets.addAll(list);
-        notifyDataSetChanged();
-    }
-
 }

@@ -1,7 +1,9 @@
 package com.codepath.apps.restclienttemplate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -18,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONException;
@@ -28,6 +31,8 @@ import okhttp3.Headers;
 public class TweetDetailsActivity extends AppCompatActivity {
 
     public static String TAG = "TweetDetailsActivity";
+    Context context;
+
     Tweet tweet;
     ImageView ivProfile;
     ImageView ivMedia;
@@ -55,8 +60,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvDate = findViewById(R.id.tvDate);
         ibtnLike = findViewById(R.id.ibtnLike);
         ibtnRetweet = findViewById(R.id.ibtnRetweet);
-        tvNoLikes = (TextView) findViewById(R.id.tvNoLikes);
-        tvNoRetweets = (TextView) findViewById(R.id.tvNoRetweets);
+        tvNoLikes = findViewById(R.id.tvNoLikes);
+        tvNoRetweets = findViewById(R.id.tvNoRetweets);
 
         tweet = Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
 
@@ -68,6 +73,17 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvDate.setText(tweet.date);
         tvNoLikes.setText(String.valueOf(tweet.favoriteCount));
         tvNoRetweets.setText(String.valueOf(tweet.retweetCount));
+
+        ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(TweetDetailsActivity.this, "Looking profile!", Toast.LENGTH_SHORT).show();
+                User user = tweet.user;
+                Intent i = new Intent(TweetDetailsActivity.this, ProfileActivity.class);
+                i.putExtra(User.class.getSimpleName(), Parcels.wrap(user)); // serialize the user using parceler, use its short name as a key
+                TweetDetailsActivity.this.startActivity(i); // show the activity
+            }
+        });
 
         ibtnLike.setOnClickListener(new View.OnClickListener() {
             @Override
