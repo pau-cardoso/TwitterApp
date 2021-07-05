@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/ivBanner"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,11 +38,11 @@
         android:layout_below="@+id/ivProfileP"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:text="TextView"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvScreenNameProfile"
@@ -51,10 +51,10 @@
         android:layout_below="@+id/tvNameProfile"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="1dp"
         android:text="TextView"
         android:textColor="@color/twitter_gray"
-        android:textSize="10sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvDescription"
@@ -63,11 +63,11 @@
         android:layout_below="@+id/tvScreenNameProfile"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="30dp"
         android:text="TextView"
-        android:textSize="10sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvNoFollowing"
@@ -76,9 +76,9 @@
         android:layout_below="@+id/tvDescription"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:textSize="11sp"
-        android:textStyle="bold"
         android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
         tools:text="206" />
 
     <TextView
@@ -90,8 +90,8 @@
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/tvNoFollowing"
         android:text="Following"
-        android:textSize="11sp"
-        android:textColor="@color/twitter_gray"/>
+        android:textColor="@color/twitter_gray"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvNoFollowers"
@@ -101,9 +101,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/tvFollowing"
-        android:textSize="11sp"
-        android:textStyle="bold"
         android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
         tools:text="102" />
 
     <TextView
@@ -115,8 +115,8 @@
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/tvNoFollowers"
         android:text="Followers"
-        android:textSize="11sp"
-        android:textColor="@color/twitter_gray"/>
+        android:textColor="@color/twitter_gray"
+        android:textSize="14sp" />
 
     <View
         android:id="@+id/divider"
