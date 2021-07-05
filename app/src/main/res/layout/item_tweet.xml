@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
     android:background="#15212b"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:paddingVertical="12dp"
-    android:layout_marginBottom="1dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -41,9 +41,9 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:linksClickable="true"
         android:textColor="@android:color/white"
         android:textSize="14sp"
-        android:linksClickable="true"
         tools:text="This is my tweet" />
 
     <TextView
@@ -75,7 +75,7 @@
     <ImageView
         android:id="@+id/ivMedia"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
         android:layout_alignParentBottom="false"
         android:layout_marginStart="12dp"
@@ -84,5 +84,47 @@
         android:layout_toEndOf="@+id/ivProfileImage"
         android:visibility="visible"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/ibtnReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivMedia"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:background="#00FFFFFF"
+        android:tint="@drawable/ibtn_retweet"
+        app:srcCompat="@drawable/ic_vector_reply" />
+
+    <ImageButton
+        android:id="@+id/ibtnRetweet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivMedia"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/ibtnReply"
+        android:background="#00FFFFFF"
+        android:tint="@drawable/ibtn_retweet"
+        app:srcCompat="@drawable/ic_vector_retweet_stroke" />
+
+    <Button
+        android:id="@+id/ibtnLike2"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/ibtnRetweet2"
+        android:background="@drawable/ibtn_like"
+        android:textColor="@color/twitter_gray"
+        android:tint="@color/inline_action_like" />
 
 </RelativeLayout>
